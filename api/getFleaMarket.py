@@ -1,5 +1,5 @@
+import json
 import requests
-from pprint import pprint
 from bs4 import BeautifulSoup
 
 
@@ -20,6 +20,7 @@ def get_flea_market(query: str):
 
     return [
         {
+            'href': article.attrs['href'],
             'image': get_url_without_params(article.find('img')),
             'title': get_text_from_element(article.find('span', class_='article-title')),
             'content': get_text_from_element(article.find('span', class_='article-content')),
@@ -31,4 +32,5 @@ def get_flea_market(query: str):
 
 
 if __name__ == '__main__':
-    pprint(get_flea_market('애플워치 에르메스'))
+    result = get_flea_market('애플워치 에르메스')
+    print(json.dumps(result, ensure_ascii=False))
