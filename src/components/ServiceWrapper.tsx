@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import MobileSizedView from 'react-mobile-sized-view';
 
 const ServiceWrapper: React.FC = ({ children }) => {
@@ -9,9 +10,21 @@ const ServiceWrapper: React.FC = ({ children }) => {
       screenLightShadow="-31px -31px 62px #F06648"
       screenDarkShadow="31px 31px 62px #FD5644"
     >
-      {children}
+      <ContentWrapper>
+        {children}
+      </ContentWrapper>
     </MobileSizedView>
   );
 };
 
 export default ServiceWrapper;
+
+const ContentWrapper = styled.div`
+  width: 90%;
+  overflow-y: auto;
+  margin: 0 auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
