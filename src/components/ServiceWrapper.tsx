@@ -1,26 +1,17 @@
 import React from 'react';
-import styled from 'styled-components';
+import MobileSizedView from 'react-mobile-sized-view';
 
 const ServiceWrapper: React.FC = ({ children }) => {
   return (
-    <Wrapper>
-      <Container>
-        {children}
-      </Container>
-    </Wrapper>
+    <MobileSizedView
+      backgroundColor="#F26739"
+      screenBackgroundColor="#F7F7F7"
+      screenLightShadow="-31px -31px 62px #F06648"
+      screenDarkShadow="31px 31px 62px #FD5644"
+    >
+      {children}
+    </MobileSizedView>
   );
 };
 
 export default ServiceWrapper;
-
-const Wrapper = styled.div`
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-`;
-
-const Container = styled.main`
-  width: 90%;
-  max-width: 1280px;
-  margin: 0 auto;
-`;
