@@ -1,4 +1,3 @@
-import json
 import requests
 from bs4 import BeautifulSoup
 
@@ -11,7 +10,8 @@ def get_url_without_params(element):
     return element.attrs['src'].split('?')[0]
 
 
-def get_flea_market(query: str):
+def get_articles():
+    query = '애플워치 에르메스'
     request_url = f'https://www.daangn.com/search/{query}'
     response = requests.get(request_url)
 
@@ -29,8 +29,3 @@ def get_flea_market(query: str):
         }
         for article in articles
     ]
-
-
-if __name__ == '__main__':
-    result = get_flea_market('애플워치 에르메스')
-    print(json.dumps(result, ensure_ascii=False))
