@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import ProductCard from './ProductCard';
-import products from '../../mockups/products.json';
+import products from '../../api/products.json';
 
 const Home: React.FC = () => {
   console.log(products);
