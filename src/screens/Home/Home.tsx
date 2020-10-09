@@ -3,15 +3,17 @@ import styled from 'styled-components';
 
 import ProductCard from './ProductCard';
 import products from '../../api/products.json';
+import useScreenSize from '../../utils/useScreenSize';
 
 const Home: React.FC = () => {
-  console.log(products);
+  const { width: screenWidth } = useScreenSize();
 
   return (
     <Container>
       {products.map((product, productIndex) => (
         <ProductCard
           key={productIndex}
+          screenWidth={screenWidth}
           {...product}
         />
       ))}
