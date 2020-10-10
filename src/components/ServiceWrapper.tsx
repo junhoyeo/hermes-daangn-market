@@ -24,6 +24,7 @@ const ContentWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
+  scroll-behavior: smooth;
 
   &::-webkit-scrollbar {
     display: none;

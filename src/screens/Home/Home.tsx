@@ -24,6 +24,9 @@ const Home: React.FC = () => {
             {...product}
           />
         ))}
+        <MoreButton>
+          더보기
+          </MoreButton>
       </ProductList>
     </Container>
   );
@@ -43,6 +46,9 @@ const Header = styled.header`
   padding: 30px 0;
   background-color: white;
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.045);
+  position: sticky;
+  top: 0;
+  z-index: 999;
 `;
 
 const Logo = styled.img`
@@ -63,5 +69,22 @@ const ProductList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding-top: 12.5px;
+  padding: 12.5px 0;
+`;
+
+const MoreButton = styled.button`
+  width: 100%;
+  margin: 15px 0;
+  padding: 15px 0;
+  padding-bottom: 17px;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  font-weight: bold;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.45);
+  background-color: transparent;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
 `;
