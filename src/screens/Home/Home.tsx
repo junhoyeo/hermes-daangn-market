@@ -53,6 +53,12 @@ const Header = styled.header`
 
 const Logo = styled.img`
   height: 25px;
+  width: 207.891px;
+
+  @media screen and (max-width: 340px) {
+    height: 22px;
+    width: 182.938px;
+  }
 `;
 
 const Title = styled.span`
@@ -60,6 +66,10 @@ const Title = styled.span`
   font-weight: bold;
   margin-top: 3.5px;
   color: #F26739;
+
+  @media screen and (max-width: 340px) {
+    font-size: 10px;
+  }
 `;
 
 const ProductList = styled.ul`

@@ -38,14 +38,12 @@ const ProductCard: React.FC<IProductCard> = ({
         <Image src={`${image}?q=85&s=400x400&t=crop`} />
         <InformationContainer>
           {series && <Series>Series {series}</Series>}
-          <Size>
-            {size ? (
-              <>
-                {size}
-                <small>mm</small>
-              </>
-            ) : <UnknownSize>Unknown</UnknownSize>}
-          </Size>
+          {size ? (
+            <Size>
+              {size}
+              <small>mm</small>
+            </Size>
+          ) : <UnknownSize>Unknown</UnknownSize>}
         </InformationContainer>
       </ImageWrapper>
       <Title>{title}</Title>
@@ -100,6 +98,14 @@ const Series = styled.span`
   font-weight: 900;
   font-size: 20px;
   line-height: 1;
+
+  @media screen and (max-width: 400px) {
+    font-size: 18px;
+  }
+
+  @media screen and (max-width: 340px) {
+    font-size: 16px;
+  }
 `;
 
 const Size = styled.span`
@@ -108,11 +114,30 @@ const Size = styled.span`
   font-weight: 900;
   font-size: 36px;
   line-height: 1;
+
+  @media screen and (max-width: 400px) {
+    font-size: 30px;
+    line-height: 1.1;
+  }
+
+  @media screen and (max-width: 340px) {
+    font-size: 25px;
+  }
 `;
 
 const UnknownSize = styled(Size)`
   font-size: 28px;
   letter-spacing: -1.5px;
+
+  @media screen and (max-width: 400px) {
+    font-size: 25px;
+    line-height: 1.3;
+  }
+
+  @media screen and (max-width: 340px) {
+    font-size: 20px;
+    line-height: 1.25;
+  }
 `;
 
 const Title = styled.h3`
