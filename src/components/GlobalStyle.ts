@@ -18,10 +18,14 @@ export default createGlobalStyle`
     text-decoration: none;
   }
 
+  html {
+    background-color: #F26739;
+  }
+
   body {
     margin: 0;
     word-break: keep-all;
-    background-color: #F7F8FA;
+    overflow: hidden;
   }
 
   body,
