@@ -15,4 +15,5 @@ async def index(request):
         except:
             page = 1
     products = get_products(page)
+    products['args'] = request.args
     return json(products, ensure_ascii=False)
