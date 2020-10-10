@@ -10,9 +10,9 @@ def get_url_without_params(element):
     return element.attrs['src'].split('?')[0]
 
 
-def get_articles():
+def get_articles(page: int = 1):
     query = '애플워치 에르메스'
-    request_url = f'https://www.daangn.com/search/{query}'
+    request_url = f'https://www.daangn.com/search/{query}/more/flea_market?page={page}'
     response = requests.get(request_url)
 
     html = BeautifulSoup(response.text, 'html.parser')

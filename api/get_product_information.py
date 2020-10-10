@@ -1,5 +1,5 @@
 import re
-from constants import SIZES, SERIES
+from .constants import SIZES, SERIES
 
 
 def get_numbers_from_string(string):

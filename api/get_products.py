@@ -1,10 +1,10 @@
 import json
-from get_articles import get_articles
-from get_product_information import get_product_information
+from .get_articles import get_articles
+from .get_product_information import get_product_information
 
 
-def get_products():
-    articles = get_articles()
+def get_products(page: int = 1):
+    articles = get_articles(page)
 
     products = []
 
