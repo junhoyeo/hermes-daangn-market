@@ -22,9 +22,15 @@ const ProductCard: React.FC<IProductCard> = ({
 }) => {
   const productCardWidth = screenWidth * 0.9 * 0.48;
 
+  const onClickProductCard = () => {
+    const win = window.open(`https://www.daangn.com/${href}`, '_blank');
+    win?.focus();
+  };
+
   return (
     <Container
       width={productCardWidth}
+      onClick={onClickProductCard}
     >
       <ImageWrapper
         width={productCardWidth}
@@ -54,6 +60,11 @@ const Container = styled.li<IProductCardWidth>`
   margin-bottom: 10px;
   list-style-type: none;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.035);
+  }
 
   ${({ width = 240 }) => css`
     width: ${width}px;
@@ -106,7 +117,8 @@ const UnknownSize = styled(Size)`
 
 const Title = styled.h3`
   font-weight: bold;
-  font-size: 18px;
+  font-size: 15px;
+  word-break: break-word;
   line-height: 1.25;
   margin: 0;
   margin-top: 8px;
