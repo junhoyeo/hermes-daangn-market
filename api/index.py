@@ -11,9 +11,8 @@ async def index(request):
     page = 1
     if 'page' in request.args:
         try:
-            page = int(request.args['page'])
+            page = int(request.args['page'][0])
         except:
             page = 1
     products = get_products(page)
-    products['args'] = request.args
     return json(products, ensure_ascii=False)
