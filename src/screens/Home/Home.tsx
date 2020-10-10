@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useScreenSize } from 'react-mobile-sized-view/lib/hooks';
 import styled from 'styled-components';
 
@@ -9,17 +9,9 @@ import logoImage from '../../assets/logo.png';
 
 const Home: React.FC = () => {
   const { width: screenWidth } = useScreenSize();
-  const [page, setPage] = useState<number>(1);
-  const [pending, setPending] = useState<boolean>(false);
+  const { products, update } = useProducts();
 
-  const products = useProducts(page);
-
-  const onClickMoreButton = () => {
-    if (pending) return;
-    setPending(true);
-    setPage(page + 1);
-    setPending(false);
-  };
+  const onClickMoreButton = () => update();
 
   return (
     <Container>
