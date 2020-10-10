@@ -1,3 +1,4 @@
 sanic==19.6.0
+sanic-cors==0.10.0.post3
 bs4==0.0.1
 requests==2.23.0
