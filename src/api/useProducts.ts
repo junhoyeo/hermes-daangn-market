@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
-import axios from 'axios';
 
+import client from './client';
 import { IProduct } from './interfaces';
 
 export default () => {
@@ -9,7 +9,7 @@ export default () => {
   const [products, setProducts] = useState<IProduct[]>([]);
 
   const getProducts = useCallback(async (page: number) => {
-    const { data: newProducts } = await axios.get(`https://hermes-daangn.vercel.app/api?page=${page}`);
+    const { data: newProducts } = await client.get(`/api?page=${page}`);
     setProducts((previousProducts) => [
       ...previousProducts,
       ...newProducts,
