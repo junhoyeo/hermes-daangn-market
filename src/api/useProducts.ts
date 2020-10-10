@@ -8,8 +8,11 @@ export default (page: number = 1) => {
 
   useEffect(() => {
     const getProducts = async () => {
-      const { data } = await axios.get(`https://hermes-daangn.vercel.app/api?page=${page}`);
-      setProducts(data);
+      const { data: newProducts } = await axios.get(`https://hermes-daangn.vercel.app/api?page=${page}`);
+      setProducts((previousProducts) => [
+        ...previousProducts,
+        ...newProducts,
+      ]);
     };
 
     getProducts();

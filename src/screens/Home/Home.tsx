@@ -10,9 +10,16 @@ import logoImage from '../../assets/logo.png';
 const Home: React.FC = () => {
   const { width: screenWidth } = useScreenSize();
   const [page, setPage] = useState<number>(1);
+  const [pending, setPending] = useState<boolean>(false);
+
   const products = useProducts(page);
 
-  const onClickMoreButton = () => setPage(page + 1);
+  const onClickMoreButton = () => {
+    if (pending) return;
+    setPending(true);
+    setPage(page + 1);
+    setPending(false);
+  };
 
   return (
     <Container>
