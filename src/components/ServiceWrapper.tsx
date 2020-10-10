@@ -20,9 +20,10 @@ const ServiceWrapper: React.FC = ({ children }) => {
 export default ServiceWrapper;
 
 const ContentWrapper = styled.div`
-  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   overflow-y: auto;
-  margin: 0 auto;
 
   &::-webkit-scrollbar {
     display: none;

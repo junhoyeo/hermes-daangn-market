@@ -49,9 +49,10 @@ const ProductCard: React.FC<IProductCard> = ({
 
 export default ProductCard;
 
-const Container = styled.div<IProductCardWidth>`
+const Container = styled.li<IProductCardWidth>`
   margin-top: 15px;
   margin-bottom: 10px;
+  list-style-type: none;
 
   ${({ width = 240 }) => css`
     width: ${width}px;
