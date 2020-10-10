@@ -8,7 +8,7 @@ export default (page: number = 1) => {
 
   useEffect(() => {
     const getProducts = async () => {
-      const { data } = await axios.get(`http://hermes-daangn.vercel.app/api?page=${page}`);
+      const { data } = await axios.get(`https://hermes-daangn.vercel.app/api?page=${page}`);
       setProducts(data);
     };
 

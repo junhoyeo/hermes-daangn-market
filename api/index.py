@@ -1,11 +1,9 @@
 from sanic import Sanic
 from sanic.response import json
-from sanic_cors import CORS
 
 from .get_products import get_products
 
 app = Sanic(name='hermes-daangn')
-CORS(app)
 
 
 @app.route('/api')
