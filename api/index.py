@@ -6,9 +6,13 @@ from .get_products import get_products
 app = Sanic(name='hermes-daangn')
 
 
-@app.route('/')
-@app.route('/<path:path>')
-async def index(request, path):
-    # products = get_products(page)
-    # return json(products, ensure_ascii=False)
-    return json({'hello': path})
+@app.route('/api')
+async def index(request):
+    page = 1
+    if 'page' in request.args:
+        try:
+            page = int(request.args['page'])
+        except:
+            page = 1
+    products = get_products(page)
+    return json(products, ensure_ascii=False)
