@@ -1,19 +1,13 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
+import { IProduct } from '../../api/interfaces';
+
 interface IProductCardWidth {
   width?: number;
 }
 
-export interface IProductCard {
-  href: string;
-  image: string;
-  title: string;
-  content: string;
-  regionName: string;
-  price: string;
-  size: number | null;
-  series: number | null;
+export interface IProductCard extends IProduct {
   screenWidth: number;
 }
 

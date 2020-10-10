@@ -9,12 +9,13 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "axios": "^0.20.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-mobile-sized-view": "^1.0.3",
+    "react-mobile-sized-view": "^1.0.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "styled-components": "^5.1.1",
+    "styled-components": "^5.2.0",
     "styled-normalize": "^8.0.7"
   },
   "devDependencies": {
@@ -22,7 +23,7 @@
     "@types/react": "^16.9.51",
     "@types/react-dom": "^16.9.8",
     "@types/react-router-dom": "^5.1.6",
-    "@types/styled-components": "^5.1.3",
+    "@types/styled-components": "^5.1.4",
     "typescript": "^4.0.3"
   },
   "eslintConfig": {

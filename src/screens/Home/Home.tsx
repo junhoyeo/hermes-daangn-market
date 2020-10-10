@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useScreenSize } from 'react-mobile-sized-view/lib/hooks';
 import styled from 'styled-components';
 
 import ProductCard from './ProductCard';
-import products from '../../api/products.json';
-import useScreenSize from '../../utils/useScreenSize';
+import useProducts from '../../api/useProducts';
 
 import logoImage from '../../assets/logo.png';
 
 const Home: React.FC = () => {
   const { width: screenWidth } = useScreenSize();
+  const [page, setPage] = useState<number>(1);
+  const products = useProducts(page);
+
+  const onClickMoreButton = () => setPage(page + 1);
 
   return (
     <Container>
@@ -20,13 +24,15 @@ const Home: React.FC = () => {
         {products.map((product, productIndex) => (
           <ProductCard
             key={productIndex}
-            screenWidth={screenWidth}
             {...product}
+            screenWidth={screenWidth}
           />
         ))}
-        <MoreButton>
+        <MoreButton
+          onClick={onClickMoreButton}
+        >
           더보기
-          </MoreButton>
+        </MoreButton>
       </ProductList>
     </Container>
   );
