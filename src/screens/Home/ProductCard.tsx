@@ -53,6 +53,7 @@ const Container = styled.li<IProductCardWidth>`
   margin-top: 15px;
   margin-bottom: 10px;
   list-style-type: none;
+  cursor: pointer;
 
   ${({ width = 240 }) => css`
     width: ${width}px;

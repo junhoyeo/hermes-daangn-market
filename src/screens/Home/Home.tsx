@@ -77,14 +77,16 @@ const MoreButton = styled.button`
   margin: 15px 0;
   padding: 15px 0;
   padding-bottom: 17px;
-  border: 2px solid rgba(0, 0, 0, 0.15);
   font-weight: bold;
   cursor: pointer;
   color: rgba(0, 0, 0, 0.45);
-  background-color: transparent;
-  transition: background-color 0.2s ease-in-out;
+  background-color: #f9f9f9;
+  transition: all 0.2s ease-in;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.02);
+    color: rgba(0, 0, 0, 0.5);
+    background-color: #fbfbfb;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.05);
   }
 `;
