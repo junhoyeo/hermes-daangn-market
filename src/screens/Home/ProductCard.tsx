@@ -18,7 +18,7 @@ export interface IProductCard {
 }
 
 const ProductCard: React.FC<IProductCard> = ({
-  href, image, title, content, regionName, price, size, series, screenWidth,
+  href, image, title, regionName, price, size, series, screenWidth,
 }) => {
   const productCardWidth = screenWidth * 0.9 * 0.48;
 
@@ -47,6 +47,10 @@ const ProductCard: React.FC<IProductCard> = ({
         </InformationContainer>
       </ImageWrapper>
       <Title>{title}</Title>
+      <MetaRow>
+        <Meta>{regionName}</Meta>
+        <Meta>{price}</Meta>
+      </MetaRow>
     </Container>
   );
 };
@@ -92,12 +96,15 @@ const InformationContainer = styled.div`
   left: 12px;
 `;
 
-const Series = styled.span`
+const InformationText = styled.span`
   color: white;
   text-shadow: 3px 3px 9px rgba(0, 0, 0, 0.25);
   font-weight: 900;
-  font-size: 20px;
   line-height: 1;
+`;
+
+const Series = styled(InformationText)`
+  font-size: 20px;
 
   @media screen and (max-width: 400px) {
     font-size: 18px;
@@ -108,12 +115,8 @@ const Series = styled.span`
   }
 `;
 
-const Size = styled.span`
-  color: white;
-  text-shadow: 3px 3px 9px rgba(0, 0, 0, 0.25);
-  font-weight: 900;
+const Size = styled(InformationText)`
   font-size: 36px;
-  line-height: 1;
 
   @media screen and (max-width: 400px) {
     font-size: 30px;
@@ -147,4 +150,20 @@ const Title = styled.h3`
   line-height: 1.25;
   margin: 0;
   margin-top: 8px;
+`;
+
+const MetaRow = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+`;
+
+const Meta = styled.span`
+  font-size: 12px;
+  line-height: 1.45;
+
+  &:not(:first-child) {
+    color: #F26739;
+    font-weight: bold;
+  }
 `;
