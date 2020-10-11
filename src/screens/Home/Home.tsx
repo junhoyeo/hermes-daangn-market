@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useScreenSize } from 'react-mobile-sized-view/lib/hooks';
 import styled from 'styled-components';
 
@@ -9,9 +9,32 @@ import logoImage from '../../assets/logo.png';
 
 const Home: React.FC = () => {
   const { width: screenWidth } = useScreenSize();
+  const productCardWidth = useMemo(() => screenWidth * 0.9 * 0.48, [
+    screenWidth,
+  ]);
+
   const { products, update } = useProducts();
 
-  const onClickMoreButton = () => update();
+  const onClickMoreButton = async () => {
+    const previousPageLength = await update();
+    if (!previousPageLength) {
+      return;
+    }
+
+    const contentWrapperElement = document.getElementById('content-wrapper');
+    if (!contentWrapperElement) {
+      return;
+    }
+
+    const firstProductCard = document.getElementsByClassName(
+      'product-card',
+    )[0] as HTMLLIElement;
+    const productCardHeight =
+      parseFloat(window.getComputedStyle(firstProductCard).height) + 25;
+    contentWrapperElement.scrollTop =
+      Math.ceil(previousPageLength / 2) * productCardHeight -
+      productCardHeight / 2;
+  };
 
   return (
     <Container>
@@ -24,14 +47,10 @@ const Home: React.FC = () => {
           <ProductCard
             key={productIndex}
             {...product}
-            screenWidth={screenWidth}
+            width={productCardWidth}
           />
         ))}
-        <MoreButton
-          onClick={onClickMoreButton}
-        >
-          더보기
-        </MoreButton>
+        <MoreButton onClick={onClickMoreButton}>더보기</MoreButton>
       </ProductList>
     </Container>
   );
@@ -70,7 +89,7 @@ const Title = styled.span`
   font-size: 12px;
   font-weight: bold;
   margin-top: 3.5px;
-  color: #F26739;
+  color: #f26739;
 
   @media screen and (max-width: 340px) {
     font-size: 10px;

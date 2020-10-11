@@ -10,10 +10,7 @@ export default () => {
 
   const getProducts = useCallback(async (page: number) => {
     const { data: newProducts } = await client.get(`/api?page=${page}`);
-    setProducts((previousProducts) => [
-      ...previousProducts,
-      ...newProducts,
-    ]);
+    setProducts((previousProducts) => [...previousProducts, ...newProducts]);
   }, []);
 
   useEffect(() => {
@@ -25,9 +22,11 @@ export default () => {
       return;
     }
     setisPending(true);
+    const previousPageLength = products.length;
     await getProducts(currentPage + 1);
     setisPending(false);
     setCurrentPage(currentPage + 1);
+    return previousPageLength;
   };
 
   return {

@@ -10,9 +10,7 @@ const ServiceWrapper: React.FC = ({ children }) => {
       screenLightShadow="-31px -31px 62px #F06648"
       screenDarkShadow="31px 31px 62px #FD5644"
     >
-      <ContentWrapper>
-        {children}
-      </ContentWrapper>
+      <ContentWrapper id="content-wrapper">{children}</ContentWrapper>
     </MobileSizedView>
   );
 };

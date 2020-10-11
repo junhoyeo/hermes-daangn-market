@@ -7,15 +7,18 @@ interface IProductCardWidth {
   width?: number;
 }
 
-export interface IProductCard extends IProduct {
-  screenWidth: number;
-}
+export interface IProductCard extends IProduct, IProductCardWidth {}
 
 const ProductCard: React.FC<IProductCard> = ({
-  href, image, title, regionName, price, size, series, screenWidth,
+  href,
+  image,
+  title,
+  regionName,
+  price,
+  size,
+  series,
+  width,
 }) => {
-  const productCardWidth = screenWidth * 0.9 * 0.48;
-
   const onClickProductCard = () => {
     const win = window.open(`https://www.daangn.com/${href}`, '_blank');
     win?.focus();
@@ -23,12 +26,11 @@ const ProductCard: React.FC<IProductCard> = ({
 
   return (
     <Container
-      width={productCardWidth}
+      className="product-card"
+      width={width}
       onClick={onClickProductCard}
     >
-      <ImageWrapper
-        width={productCardWidth}
-      >
+      <ImageWrapper width={width}>
         <Image src={`${image}?q=85&s=400x400&t=crop`} />
         <InformationContainer>
           {series && <Series>Series {series}</Series>}
@@ -37,7 +39,9 @@ const ProductCard: React.FC<IProductCard> = ({
               {size}
               <small>mm</small>
             </Size>
-          ) : <UnknownSize>Unknown</UnknownSize>}
+          ) : (
+            <UnknownSize>Unknown</UnknownSize>
+          )}
         </InformationContainer>
       </ImageWrapper>
       <Title>{title}</Title>
@@ -144,6 +148,12 @@ const Title = styled.h3`
   line-height: 1.25;
   margin: 0;
   margin-top: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 33.75px;
 `;
 
 const MetaRow = styled.div`
@@ -157,7 +167,7 @@ const Meta = styled.span`
   line-height: 1.45;
 
   &:not(:first-child) {
-    color: #F26739;
+    color: #f26739;
     font-weight: bold;
   }
 `;
