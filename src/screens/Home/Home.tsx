@@ -60,6 +60,9 @@ export default Home;
 
 const Container = styled.div`
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Header = styled.header`
@@ -104,6 +107,7 @@ const ProductList = styled.ul`
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 12.5px 0;
+  margin-top: auto;
 `;
 
 const MoreButton = styled.button`

@@ -23,6 +23,7 @@ const ContentWrapper = styled.div`
   align-items: center;
   overflow-y: auto;
   scroll-behavior: smooth;
+  height: 100%;
 
   &::-webkit-scrollbar {
     display: none;
