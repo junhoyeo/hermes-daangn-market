@@ -60,13 +60,14 @@ export default Home;
 
 const Container = styled.div`
   width: 100%;
-  height: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
 `;
 
 const Header = styled.header`
   width: 100%;
+  min-height: 101.5px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -104,23 +105,32 @@ const ProductList = styled.ul`
   margin: 0 auto;
   padding: 0;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 12.5px 0;
   margin-top: auto;
+  padding-top: 12.5px;
+  flex: 0 0 100%;
+  min-height: calc(100vh - 101.5px);
 `;
 
 const MoreButton = styled.button`
   width: 100%;
-  margin: 15px 0;
+  margin: 15px auto;
+  margin-top: auto;
   padding: 15px 0;
-  padding-bottom: 17px;
   font-weight: bold;
   cursor: pointer;
   color: rgba(0, 0, 0, 0.45);
   background-color: #f9f9f9;
   transition: all 0.2s ease-in;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: calc(constant(safe-area-inset-bottom) + 24px);
+  margin-bottom: calc(env(safe-area-inset-bottom) + 24px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
 
   &:hover {
     color: rgba(0, 0, 0, 0.5);
