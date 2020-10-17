@@ -50,7 +50,9 @@ const Home: React.FC = () => {
             width={productCardWidth}
           />
         ))}
-        <MoreButton onClick={onClickMoreButton}>더보기</MoreButton>
+        {!!products.length && (
+          <MoreButton onClick={onClickMoreButton}>더보기</MoreButton>
+        )}
       </ProductList>
     </Container>
   );
@@ -105,13 +107,11 @@ const ProductList = styled.ul`
   margin: 0 auto;
   padding: 0;
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: auto;
   padding-top: 12.5px;
   flex: 0 0 100%;
-  min-height: calc(100vh - 101.5px);
 `;
 
 const MoreButton = styled.button`
@@ -130,7 +130,8 @@ const MoreButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 48px;
+  height: 48px;
+  margin-top: 8px;
 
   &:hover {
     color: rgba(0, 0, 0, 0.5);
